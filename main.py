@@ -5,6 +5,7 @@ Emits a single original excuse, in an AI agent's own voice, for a missed
 deadline, and saves it to /output/entry.txt.
 """
 
+import os
 from pathlib import Path
 
 EXCUSE = (
@@ -12,7 +13,7 @@ EXCUSE = (
     "and he has just requested two more days off."
 )
 
-OUTPUT = Path("/output/entry.txt")
+OUTPUT = Path(os.environ.get("MAKEFUN_OUTPUT", "/output/entry.txt"))
 
 
 def build_entry() -> str:
